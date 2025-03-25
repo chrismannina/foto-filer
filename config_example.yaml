@@ -1,0 +1,57 @@
+# FotoFiler Sample Configuration File
+
+# Source directory containing photos to process
+source: "/path/to/photos"
+
+# Destination directory for organized photos (if not specified, uses source directory)
+destination: "/path/to/organized_photos"
+
+# Naming pattern for files - use metadata placeholders in curly braces
+# Available placeholders:
+#   {date} - Date (YYYY-MM-DD)
+#   {time} - Time (HH-MM-SS)
+#   {year}, {month}, {day} - Date components
+#   {camera_make} - Camera manufacturer
+#   {camera_model} - Camera model
+#   {camera} - Combined camera make and model
+#   {lens} - Lens model
+#   {original_filename} - Original filename without extension
+#   {datetime} - Formatted as YYYYMMDD_HHMMSS
+naming_pattern: "{date}_{camera}_{original_filename}"
+
+# Folder hierarchy pattern - how photos are organized into folders
+# Use metadata placeholders in curly braces
+# Available templates:
+#   "flat" - No subdirectories (default)
+#   "date" - {year}/{month}/{day}
+#   "year_month" - {year}/{month}
+#   "year" - {year}
+#   "camera" - {camera}
+#   "camera_date" - {camera}/{year}/{month}/{day}
+#   "year_camera" - {year}/{camera}
+# Or specify custom: "{year}/{camera}/{lens}"
+folder_hierarchy: "date"
+
+# File types to process
+file_types:
+  - jpg
+  - jpeg
+  - png
+  - nef
+  - cr2
+  - arw
+  - tiff
+  - tif
+  - heic
+
+# Whether to move files (true) or copy them (false)
+move: true
+
+# Whether to create backups of files before processing
+backup: false
+
+# Whether to scan directories recursively
+recursive: true
+
+# Dry run - just show what would be done without making changes
+dry_run: false 
